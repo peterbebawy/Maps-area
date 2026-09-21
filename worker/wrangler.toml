@@ -1,0 +1,3 @@
+name = "maps-short-link-resolver"
+main = "resolve-google-maps-worker.js"
+compatibility_date = "2026-09-01"
