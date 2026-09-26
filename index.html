@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0f172a" />
+  <meta name="description" content="تحديد المنطقة الرئيسية والحي الدقيق من رابط Google Maps داخل العبور ومصر الجديدة والعباسية والتجمع الخامس." />
+  <title>محدد المنطقة من Google Maps</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <span class="eyebrow">Maps Area Finder</span>
+      <h1>اعرف المنطقة من رابط Google Maps</h1>
+      <p>الصق رابط الموقع، وسيتم تحديد المنطقة الرئيسية ثم الحي/المجاورة/المنطقة الأدق داخلها.</p>
+      <div class="chips" aria-label="المناطق المدعومة">
+        <span>العبور</span>
+        <span>مصر الجديدة / هليوبوليس</span>
+        <span>العباسية</span>
+        <span>التجمع الخامس</span>
+      </div>
+    </section>
+
+    <section class="card search-card" aria-labelledby="search-title">
+      <h2 id="search-title">رابط الموقع</h2>
+      <label for="mapsLink">Google Maps URL</label>
+      <div class="input-row">
+        <input id="mapsLink" type="url" inputmode="url" autocomplete="off" spellcheck="false"
+               placeholder="https://www.google.com/maps/..." aria-describedby="inputHelp" />
+        <button id="lookupBtn" type="button">تحديد المنطقة</button>
+      </div>
+      <p id="inputHelp" class="hint">يدعم روابط Google Maps الكاملة والإحداثيات. روابط maps.app.goo.gl القصيرة تحتاج مُحلّل الروابط الاختياري الموضح في README.</p>
+      <div id="status" class="status" role="status" aria-live="polite"></div>
+    </section>
+
+    <section id="resultCard" class="card result-card hidden" aria-live="polite">
+      <div class="result-head">
+        <div>
+          <span class="result-kicker">النتيجة</span>
+          <h2 id="mainArea">—</h2>
+        </div>
+        <span id="confidenceBadge" class="badge">—</span>
+      </div>
+
+      <div class="result-grid">
+        <div class="result-item primary">
+          <span>المنطقة الدقيقة</span>
+          <strong id="exactArea">—</strong>
+        </div>
+        <div class="result-item">
+          <span>العنوان الأقرب</span>
+          <strong id="formattedAddress">—</strong>
+        </div>
+        <div class="result-item">
+          <span>الإحداثيات</span>
+          <strong id="coords">—</strong>
+        </div>
+        <div class="result-item">
+          <span>مصدر تحديد العنوان</span>
+          <strong id="provider">—</strong>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a id="openMaps" class="secondary-btn" href="#" target="_blank" rel="noopener noreferrer">فتح على Google Maps</a>
+        <button id="copyBtn" class="ghost-btn" type="button">نسخ النتيجة</button>
+      </div>
+    </section>
+
+    <section id="errorCard" class="card error-card hidden" role="alert">
+      <h2>تعذر تحديد المنطقة</h2>
+      <p id="errorMessage"></p>
+    </section>
+
+    <footer>
+      <span>Reverse geocoding data: OpenStreetMap contributors عند استخدام الوضع المجاني.</span>
+    </footer>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
